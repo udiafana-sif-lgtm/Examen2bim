@@ -1,0 +1,355 @@
+/* ==========================================
+   DASHBOARD ESTÉTICO - INSPIRACIÓN BTS (BORAHAE)
+   Diseño Premium con Degradados Pastel y Efecto Cristal (Glassmorphism)
+   ========================================== */
+
+:root {
+    --bg-main: #f3f0f7; /* Fondo lavanda pastel ultra suave */
+    --bg-navbar: rgba(255, 255, 255, 0.85); /* Cristal traslúcido */
+    --text-color: #4a3e56; /* Tono oscuro berenjena/lavanda para textos */
+    --text-light: #8a7a93;
+    
+    /* Paleta Inspirada en las Eras de BTS (Versiones Pastel de Examen) */
+    --bts-purple: #d1c4e9;       /* Borahae / Microkosmos Base */
+    --bts-purple-dark: #9575cd;  /* Acento Morado */
+    --bts-persona: #fbc4ab;     /* Persona Pink / Orange */
+    --bts-butter: #ffe599;      /* Butter Yellow */
+    --bts-be: #b3e5fc;          /* BE / Life Goes On Blue */
+    --bts-dynamite: #b2dfdb;    /* Dynamite Mint/Teal */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5efff 0%, #f0f4ff 100%);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.dashboard-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* REQUISITO 1: Barra de Navegación con Flexbox + Estética Glassmorphism */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-navbar);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 18px 40px;
+    box-shadow: 0 8px 32px rgba(149, 117, 205, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Comfortaa', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    color: #673ab7;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(103, 58, 183, 0.15);
+}
+
+.logo-sub {
+    font-weight: 300;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 10px 24px;
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid transparent;
+}
+
+.nav-btn:hover {
+    background-color: rgba(209, 196, 233, 0.4);
+    color: #512da8;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #b39ddb 0%, #d1c4e9 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(179, 157, 219, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor de Contenidos Central */
+.main-content {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Control de Ventanas Dinámicas */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-tab {
+    display: block;
+    animation: fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.welcome-header h1 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 26pt;
+    margin: 0 0 10px 0;
+    color: #311b92;
+}
+
+.welcome-header p {
+    color: var(--text-light);
+    font-size: 11pt;
+    margin: 0;
+}
+
+/* ANIMACIÓN CONTINUA DE VALS (Balanceo flotante rítmico de 3 tiempos) */
+.waltz-animation {
+    animation: luxuryWaltz 6s ease-in-out infinite;
+}
+
+@keyframes luxuryWaltz {
+    0% { transform: translateY(0px) scale(1); }
+    33% { transform: translateY(-8px) rotate(0.8deg); }
+    66% { transform: translateY(4px) rotate(-0.8deg) scale(1.01); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/* REQUISITO 2: Cuadrícula de Contenidos (CSS Grid de 4 Columnas) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* REQUISITO 3: Interactividad Visual Estética con propiedad transition */
+.card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 24px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(149, 117, 205, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    /* Propiedad transition obligatoria */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.5s ease, 
+                box-shadow 0.5s ease;
+    overflow: hidden;
+}
+
+/* Efecto Hover: Eleva, rota levemente al ritmo de vals y pinta la carta en pastel */
+.card:hover {
+    transform: translateY(-12px) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(103, 58, 183, 0.12);
+}
+
+.card-bts-persona:hover { background-color: var(--bts-persona); }
+.card-bts-butter:hover { background-color: var(--bts-butter); }
+.card-bts-be:hover { background-color: var(--bts-be); }
+.card-bts-dynamite:hover { background-color: var(--bts-dynamite); }
+
+.card-icon {
+    font-size: 30pt;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+.card h3 {
+    margin: 0 0 12px 0;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #2a1b3d;
+}
+
+.card p {
+    margin: 0 0 25px 0;
+    font-size: 10pt;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.card-tag {
+    font-size: 8.5pt;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* Ventanas Interactivas Modulares */
+.window-box {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(149, 117, 205, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Lista Interactiva Estilo Magic Shop */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.todo-item:hover {
+    background-color: rgba(209, 196, 233, 0.3);
+    transform: translateX(10px);
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #b39ddb;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* Al completar la tarea, aparece un corazón morado en vez de un check común */
+.todo-item.completed .checkbox {
+    background: linear-gradient(135deg, #7e57c2 0%, #b39ddb 100%);
+    border-color: #7e57c2;
+    position: relative;
+}
+
+.todo-item.completed .checkbox::after {
+    content: "💜";
+    font-size: 9pt;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-light);
+    opacity: 0.65;
+}
+
+/* Cajas de Estadísticas Personalizadas */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.stat-box {
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.box-borahae { background: linear-gradient(135deg, #e8eaf6 0%, #d1c4e9 100%); }
+.box-army { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
+
+.stat-val {
+    font-family: 'Comfortaa', cursive;
+    font-size: 28pt;
+    font-weight: 700;
+    margin: 12px 0 0 0;
+    color: #4a148c;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   REQUISITO 4: Adaptabilidad Absoluta (Media Queries)
+   ========================================== */
+
+@media (max-width: 991px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 599px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .welcome-header h1 {
+        font-size: 18pt;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}

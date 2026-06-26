@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMY Study Space - Visual Studio Code Edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">💜</span> Katherine <span class="logo-sub">Study Space</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="switchTab(event, 'inicio')">✨ Inicio</button>
+                <button class="nav-btn" onclick="switchTab(event, 'tareas')">📋 Tareas</button>
+                <button class="nav-btn" onclick="switchTab(event, 'rendimiento')">📊 Mi Progreso</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            
+            <section id="tab-inicio" class="tab-content active-tab">
+                <div class="welcome-header waltz-animation">
+                    <h1>Life Goes On, Let's Study! 🎵</h1>
+                    <p>Materias.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card card-bts-persona">
+                        <div class="card-icon">🌸</div>
+                        <h3>Diseño y Programacion</h3>
+                        <p>Estructuras visuales. </p>
+                        <span class="card-tag">Tema de Hoy</span>
+                    </div>
+                    <div class="card card-bts-butter">
+                        <div class="card-icon">🥞</div>
+                        <h3>Desarrollo Web</h3>
+                        <p>Escribir código tan suave como la mantequilla (Smooth like Butter).</p>
+                        <span class="card-tag">2 Entregas</span>
+                    </div>
+                    <div class="card card-bts-be">
+                        <div class="card-icon">🐬</div>
+                        <h3>Matematicas</h3>
+                        <p>ejercicios</p>
+                        <span class="card-tag">Al día</span>
+                    </div>
+                    <div class="card card-bts-dynamite">
+                        <div class="card-icon">✨</div>
+                        <h3>Taller de Sistemas Operativos</h3>
+                        <p>Web</p>
+                        <span class="card-tag">1 Pendiente</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-tareas" class="tab-content">
+                <div class="window-box waltz-animation">
+                    <h2>💜Lista de Tareas</h2>
+                    <p>Abrir</p>
+                    <ul class="todo-list">
+                        <li class="todo-item" onclick="toggleTask(this)">
+                            <span class="checkbox"></span>
+                            <span class="task-text">Maquetar la sección usando CSS Grid Avanzado</span>
+                        </li>
+                        <li class="todo-item" onclick="toggleTask(this)">
+                            <span class="checkbox"></span>
+                            <span class="task-text">Repasar codigos</span>
+                        </li>
+                        <li class="todo-item" onclick="toggleTask(this)">
+                            <span class="checkbox"></span>
+                            <span class="task-text">Ajustar las transiciones suaves (:hover) de los botones del menú</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tab-rendimiento" class="tab-content">
+                <div class="window-box">
+                    <h2>📊 Tus Estadísticas: </h2>
+                    <p>Notas académicas.</p>
+                    <div class="stats-container">
+                        <div class="stat-box box-borahae">
+                            <h3>Rendimiento General</h3>
+                            <p class="stat-val">10 / 10</p>
+                        </div>
+                        <div class="stat-box box-army">
+                            <h3>Horas de Enfoque (Focus)</h3>
+                            <p class="stat-val">7.13 hrs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabName).classList.add('active-tab');
+            event.currentTarget.classList.add('active');
+        }
+
+        function toggleTask(element) {
+            element.classList.toggle('completed');
+        }
+    </script>
+</body>
+</html>
